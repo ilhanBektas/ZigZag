@@ -7,7 +7,7 @@ public class ZeminSpawner : MonoBehaviour
 
     void Start()
     {
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 20; i++)
         {
             zeminSpawner();
         }
@@ -19,7 +19,7 @@ public class ZeminSpawner : MonoBehaviour
         
 
     }
-    void zeminSpawner()
+     public void zeminSpawner()
     {
         Vector3 yön;
         if (Random.Range(0, 2) == 0)

@@ -1,8 +1,10 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     Vector3 yön;
+    public ZeminSpawner zeminSpawnerscripti;
     [Header("Player Settings")]
     [SerializeField] float speed;
 
@@ -13,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) 
+        if (Input.GetMouseButtonDown(0))
         {
             if (yön.x == 0)
             {
@@ -29,5 +31,19 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 hareket = yön * Time.deltaTime * speed;
         transform.position += hareket;
+    }
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "zemin")
+        {
+            zeminSpawnerscripti.zeminSpawner();
+            StartCoroutine(ZeminiSil(collision.gameObject));
+        }
+    }
+
+    IEnumerator ZeminiSil(GameObject SilinecekZemin)
+    {
+        yield return new WaitForSeconds(3f);
+        Destroy(SilinecekZemin);
     }
 }
