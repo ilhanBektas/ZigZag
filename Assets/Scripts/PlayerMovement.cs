@@ -50,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
             collision.gameObject.AddComponent<Rigidbody>();
             zeminSpawnerscripti.zeminSpawner();
             StartCoroutine(ZeminiSil(collision.gameObject));
+            Score.score = Score.score + 1;
         }
     }
 
