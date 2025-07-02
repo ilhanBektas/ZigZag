@@ -11,6 +11,9 @@ public class Camera : MonoBehaviour
 
     void Update()
     {
-        transform.position = _transformPlayer.position + _fark;
+        if (!PlayerMovement._isFall)
+        {
+            transform.position = _transformPlayer.position + _fark;
+        }
     }
 }
