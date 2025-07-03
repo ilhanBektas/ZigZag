@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Camera : MonoBehaviour
 {
@@ -14,6 +15,12 @@ public class Camera : MonoBehaviour
         if (!PlayerMovement._isFall)
         {
             transform.position = _transformPlayer.position + _fark;
+        }
+        else
+        {
+            PlayerMovement._isFall = false;
+            SceneManager.LoadScene(2);
+            
         }
     }
 }

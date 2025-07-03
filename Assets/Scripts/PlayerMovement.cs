@@ -1,11 +1,14 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     Vector3 yön;
+
     public ZeminSpawner zeminSpawnerscripti;
     public static bool _isFall;
+    
     [Header("Player Settings")]
     [SerializeField] float speed;
     [SerializeField] float eklenecekSpeed;
@@ -20,22 +23,24 @@ public class PlayerMovement : MonoBehaviour
         if (transform.position.y <= 0.5f)
         {
             _isFall = true;
+            
         }
-        if (_isFall)
+         if (_isFall)
             {
-                return;
+            return;
             }
+       
         if (Input.GetMouseButtonDown(0))
-        {
-            if (yön.x == 0)
             {
-                yön = Vector3.left;
-            }
-            else
-            {
-                yön = Vector3.forward;
-            }
-            speed +=eklenecekSpeed *Time.deltaTime;
+                if (yön.x == 0)
+                {
+                    yön = Vector3.left;
+                }
+                else
+                {
+                    yön = Vector3.forward;
+                }
+                speed += eklenecekSpeed * Time.deltaTime;
             }
     }
     private void FixedUpdate()
